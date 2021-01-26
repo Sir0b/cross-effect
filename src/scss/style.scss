@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-burger {
+    $size: 50px;
+    height: $size;
+    width: $size;
+
+    background: rgba(red, .1);
+    position: relative;
+    border: none;
+    
+    $offsetY: 7px;
+
+    .bar {
+        position: absolute;
+        left: 0;
+
+        width: 100%;
+        height: 3px;
+        background: black;
+
+        transition: transform 1s ease;
+
+        &.bar--1 {
+            transform: translateY(-$offsetY);
+        }
+
+        &.bar--2 {
+            transform: translateY($offsetY);
+        }  
+    }
+    &:hover {
+        .bar--1{
+            transform: translateY(-$offsetY) rotate(-180deg);
+        }
+        .bar--2{
+            transform: translateY($offsetY) rotate(-180deg);
+        }
+
+        &.active {
+            .bar--1{
+                transform: translateY(0) rotate(45deg);
+            }
+            .bar--2{
+                transform: translateY(0) rotate(-225deg);
+            }
+        }
+    }
+}
